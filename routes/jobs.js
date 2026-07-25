@@ -9,12 +9,15 @@ const { log, error } = require("node:console");
 jobRouter.post("/jobs", userAuth, async (req, res) => {
   try {
     const loggedInUser = req.user._id;
-    const { company, role, location, jobLink, salary } = req.body;
+    const { company, role, location, jobLink, salary, jobType, platform } =
+      req.body;
 
     const job = new Job({
       user: loggedInUser._id,
       company,
       role,
+      jobType,
+      platform,
       location,
       jobLink,
       salary,
