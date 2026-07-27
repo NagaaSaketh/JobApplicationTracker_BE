@@ -64,11 +64,14 @@ jobRouter.get("/jobs/:id", userAuth, async (req, res) => {
     if (!job) {
       return res.status(404).json({ message: "No Job found!" });
     }
-    res.status(200).json(job);
+    res.status(200).json({
+      message: "Job fetched successfully",
+      job,
+    });
   } catch (err) {
     res
       .status(500)
-      .json({ message: "Failed to fetch all jobs", error: err.message });
+      .json({ message: "Failed to fetch job", error: err.message });
   }
 });
 

@@ -18,6 +18,7 @@ const jobSchema = new mongoose.Schema(
     jobType: {
       type: String,
       required: true,
+      enum:["Full-Time","Part-Time","Contract","Internship"]
     },
     role: {
       type: String,
@@ -34,7 +35,7 @@ const jobSchema = new mongoose.Schema(
     },
     salary: {
       type: String,
-      required: true,
+      default:"Competitive"
     },
     jobLink: {
       type: String,
